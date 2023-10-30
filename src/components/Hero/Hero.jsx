@@ -1,7 +1,5 @@
-import gsap from 'gsap';
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import './Hero.css'
-import FetchedSymptoms from '../FetchedSymptoms';
 import Selectors from '../Selectors';
 import GenderSelector from '../GenderSelector';
 import BodyLeft from '../BodyLeft';

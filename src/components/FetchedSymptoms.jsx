@@ -46,6 +46,7 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
                                 className='selector'
                                 onClick={function(){
                                     setSelectedSymptom(filter.symptom)
+                                    //call the fetchinf function
                                 }}
                             >
                                 {filter.symptom}

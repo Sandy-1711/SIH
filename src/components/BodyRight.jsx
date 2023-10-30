@@ -69,7 +69,7 @@ const BodyRight = ({ type, gender }) => {
                 setSelectedBodyPart(name);
             })
         })
-        var genderSelectors = document.querySelector('.genderSelectors');
+        // var genderSelectors = document.querySelector('.genderSelectors');
 
     },[gender,type])
 
