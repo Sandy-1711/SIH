@@ -1,35 +1,45 @@
-.aboutPage{
+.aboutPage {
     width: 1200px;
     margin: auto;
-    height: 100%;
-    padding: 100px 0 0 0;
+    height: 100vh;
+    /* padding: 100px 0 0 0; */
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
-.aboutPage h1{
+
+.aboutPage h1 {
     margin: 15px 0;
 }
-.aboutPage p{
+
+.aboutPage p {
     line-height: 25px;
     font-size: 18px;
 }
-.aboutPage ul{
+
+.aboutPage ul {
     margin: 20px 5px;
     background-color: rgb(215, 206, 206);
     padding: 10px 40px;
     border-radius: 5px;
 }
-.aboutPage ol{
+
+.aboutPage ol {
     margin: 10px 40px;
 }
-.aboutPage disclaimer{
+
+.aboutPage disclaimer {
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%,0%);
+    transform: translate(-50%, 0%);
     color: tomato;
 }
-.aboutPage disclaimer p{
+
+.aboutPage disclaimer p {
     width: 90%;
     margin: auto;
     text-align: center;
