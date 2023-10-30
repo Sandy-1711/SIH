@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SIH/static/css/main.76d753c2.css",
+    "main.js": "/SIH/static/js/main.4de93846.js",
+    "index.html": "/SIH/index.html",
+    "main.76d753c2.css.map": "/SIH/static/css/main.76d753c2.css.map",
+    "main.4de93846.js.map": "/SIH/static/js/main.4de93846.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76d753c2.css",
+    "static/js/main.4de93846.js"
+  ]
+}
