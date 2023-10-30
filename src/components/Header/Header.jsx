@@ -8,7 +8,7 @@ export default function Header() {
             </div>
             <div className="links">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/SIH/">Home</a></li>
                     <li><a href="/SIH/#about">About</a></li>
                     <li><a href="/SIH/#services">Services</a></li>
                     <li><a href="/SIH/#team">Team</a></li>
