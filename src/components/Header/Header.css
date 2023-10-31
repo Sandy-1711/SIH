@@ -56,3 +56,33 @@ header {
 .links ul li a:hover {
     color: var(--grey);
 }
+@media screen and (width<1200px) {
+    .headerWrapper{
+        width: 100%;
+    }
+    .links ul{
+        gap: 20px;
+    }
+}
+@media screen and (width<768px) {
+    header{
+        height: 50px;
+    }
+    .links ul{
+        gap: 7px;
+    }
+    .links ul li a{
+        font-size: 14px;
+    }
+    .logo span{
+        margin-left: 30px;
+    }
+    .links{
+        margin-right: 10px;
+    }
+}
+@media screen and (width<480px) {
+    .links ul{
+        gap: 5px;
+    }
+}

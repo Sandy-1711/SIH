@@ -165,3 +165,53 @@ svg path {
         opacity: 1;
     }
 }
+
+@media screen and (width<1200px) {
+    .mainWrapper {
+        width: 100%;
+
+    }
+}
+
+@media screen and (width<768px) {
+    .bodyRight {
+        width: 90%;
+        margin: auto;
+        padding: 0;
+        padding-bottom: 20px;
+        overflow: hidden;
+
+    }
+
+    .bodyLeft {
+        width: 90%;
+        height: max-content;
+        padding-top: 60px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .genderSelectors {
+        top: 60px;
+        left: 2%;
+        gap: 5px;
+    }
+
+    .selectors {
+        /* background-color: aqua; */
+        bottom: unset;
+        top: 60px;
+        left: unset;
+        right: 2%;
+        transform: translate(0, 0);
+        gap: 5px;
+    }
+
+    .selector {
+        padding: 7px 10px;
+    }
+
+    main {
+        height: max-content;
+    }
+}
