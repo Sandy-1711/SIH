@@ -21,20 +21,32 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
     const data = [
         {
             symptom: 'Pain',
+            reason: 'The pain in the muscle might be due to excessive exercise',
+            remedy: 'Have some rest,use pain relieving spray',
         },
         {
             symptom: 'Swelling',
+            reason: 'The swelling may have been due to heat exhaustion, or dehydration',
+            remedy: 'Drink plenty of water and eat foods that are easy to digest',
         },
         {
-            symptom: 'Broken',
+            symptom: 'Muscle Cramp',
+            reason: 'A cramp can occur when you overdo it at the gym. It could also be a sign of an injury',
+            remedy: 'Stretch your leg out straight and hold for 30 seconds',
         },
         {
             symptom: 'Itching',
+            reason: 'You might be allergic to something in your environment',
+            remedy: 'Wash your skin with soap and water',
         },
         {
-            symptom: 'Hit',
+            symptom: 'Numbness',
+            reason: 'Muscle numbness can result from various factors, including nerve compression, poor circulation, or pressure on nerves. ',
+            remedy: 'Take regular breaks while exercising',
+
         }
     ]
+
     return (<>
         {selectedBodyPart &&
             <>
@@ -44,8 +56,8 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
                         data.map(function (filter) {
                             return <button
                                 className='selector'
-                                onClick={function(){
-                                    setSelectedSymptom(filter.symptom)
+                                onClick={function () {
+                                    setSelectedSymptom(filter)
                                     //call the fetchinf function
                                 }}
                             >
@@ -59,7 +71,11 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
 
                 </div>
                 {selectedSymptom && <div>
-                    <p>{selectedSymptom}</p>
+                    <h2>Common Reasons</h2>
+                    <p>{selectedSymptom.reason}</p>
+                    <br />
+                    <h2>Remedies</h2>
+                    <p>{selectedSymptom.remedy}</p>
                 </div>}
             </>
         }
