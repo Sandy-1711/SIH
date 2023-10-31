@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
-const FetchedSymptoms = ({ gender, type, selectedBodyPart,fetSymptoms }) => {
+const FetchedSymptoms = ({ gender, type, selectedBodyPart, fetSymptoms }) => {
     const [isFetched, setIsFetched] = useState(false);
     const [selectedSymptom, setSelectedSymptom] = useState(null);
+    const [active, setActive] = useState(null);
     useEffect(function () {
 
         if (selectedBodyPart) {
@@ -15,9 +16,35 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart,fetSymptoms }) => {
         if (isFetched && selectedSymptom !== null) {
             // fetch the details of cure
 
+            function fetchReason() {
+                const text = selectedSymptom.reason;
+                var p = document.getElementById('reason');
+                p.innerHTML="";
+                for (var i = 0; i < text.length; i++) {
+                    const charSpan = document.createElement("span");
+                    charSpan.setAttribute('class', 'spantext');
+                    charSpan.setAttribute('style', `opacity:0;--i:${i}`);
+                    charSpan.textContent = text[i];
+                    p.appendChild(charSpan);
+                }
+            }
+            fetchReason();
+            function fetchRemedy() {
+                const text = selectedSymptom.remedy;
+                var p = document.getElementById('remedy');
+                p.innerHTML="";
+                for (var i = 0; i < text.length; i++) {
+                    const charSpan = document.createElement("span");
+                    charSpan.setAttribute('class', 'spantext');
+                    charSpan.setAttribute('style', `opacity:0;--i:${i}`);
+                    charSpan.textContent = text[i];
+                    p.appendChild(charSpan);
+                }
+            }
+            fetchRemedy();
         }
 
-    },[selectedBodyPart])
+    }, [selectedSymptom, selectedBodyPart])
     const data = [
         {
             symptom: 'Pain',
@@ -53,13 +80,15 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart,fetSymptoms }) => {
                 <div className="filters muscle_filter">
                     {isFetched ?
 
-                        data.map(function (filter) {
+                        data.map(function (filter, index) {
                             return <button
+                                key={index}
                                 className='selector'
                                 onClick={function () {
                                     setSelectedSymptom(filter)
-                                    //call the fetchinf function
+                                    setActive(index);
                                 }}
+                                style={{ backgroundColor: active === index && 'pink' }}
                             >
                                 {filter.symptom}
                             </button>
@@ -72,11 +101,12 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart,fetSymptoms }) => {
                 </div>
                 {selectedSymptom && <div>
                     <h2>Common Reasons</h2>
-                    <p>{selectedSymptom.reason}</p>
+                    <p id="reason"></p>
                     <br />
                     <h2>Remedies</h2>
-                    <p>{selectedSymptom.remedy}</p>
-                </div>}
+                    <p id="remedy"></p>
+                </div>
+                }
             </>
         }
     </>

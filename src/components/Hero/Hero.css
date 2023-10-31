@@ -214,4 +214,7 @@ svg path {
     main {
         height: max-content;
     }
+    .selectors{
+        z-index: 1;
+    }
 }
