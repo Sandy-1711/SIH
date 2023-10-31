@@ -1,34 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import FetchedSymptoms from './FetchedSymptoms'
+import FetchedSymptoms from './FetchedSymptoms';
 
 const BodyRight = ({ type, gender }) => {
     const [response, setResponse] = useState("Use AI to get the details of the muscles");
     const [selectedBodyPart, setSelectedBodyPart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [changed, setChanged] = useState(false);
-
+    const [fetSymptoms, setFetchedSymptoms] = useState(null);
     async function fetchData(name) {
         // fetch api function
 
         setIsLoading(true);
-        const res = await fetch(`http://localhost:8080/sih/api/${name}/info`)
-        const resjson = await res.json();
-        setResponse(resjson.info)
-        if (res && res.status === 200) {
+        // const res = await fetch(`http://localhost:8080/sih/api/${name}/info`)
+        // const resjson = await res.json();
+        // setResponse(resjson.info)
+        // if (res && res.status === 200) {
+
+        setTimeout(function () {
+
             setChanged(true);
             setIsLoading(false);
-            var text = resjson.info;
+            // var text = resjson.info;
+            var text = 'The chest muscles, also known as the pectoral muscles or pecs, are a group of large, powerful muscles located in the chest region of the human body. They play a crucial role in various upper body movements and are responsible for actions like pushing, lifting, and controlling the movement of the arms and shoulders.'
             var textContainer = document.querySelector('.fetchedResponse');
             var len = text.length;
             for (var i = 0; i < len; i++) {
+
                 const charSpan = document.createElement("span");
                 charSpan.setAttribute('class', 'spantext');
+                charSpan.setAttribute('style', `opacity:0;--i:${i}`);
                 charSpan.textContent = text[i];
                 textContainer.appendChild(charSpan);
             }
-        }
+        }, 1000)
+        // }
     }
+    function fetchSymptoms(bodypart) {
 
+    }
 
     useEffect(function () {
 
@@ -43,6 +52,7 @@ const BodyRight = ({ type, gender }) => {
                 var name = item.getAttribute('id');
                 name = name.toUpperCase();
                 setSelectedBodyPart(name);
+                fetchSymptoms(selectedBodyPart);
                 await fetchData(name);
             });
         })
@@ -71,7 +81,7 @@ const BodyRight = ({ type, gender }) => {
         })
         // var genderSelectors = document.querySelector('.genderSelectors');
 
-    },[gender,type])
+    }, [gender, type])
 
     return (
         <div className="bodyRight">
@@ -94,6 +104,7 @@ const BodyRight = ({ type, gender }) => {
             <FetchedSymptoms
                 selectedBodyPart={selectedBodyPart}
                 gender={gender}
+                fetSymptoms={fetSymptoms}
                 type={type}
             />
 

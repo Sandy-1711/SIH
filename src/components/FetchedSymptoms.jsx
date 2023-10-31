@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
+const FetchedSymptoms = ({ gender, type, selectedBodyPart,fetSymptoms }) => {
     const [isFetched, setIsFetched] = useState(false);
     const [selectedSymptom, setSelectedSymptom] = useState(null);
     useEffect(function () {
@@ -17,7 +17,7 @@ const FetchedSymptoms = ({ gender, type, selectedBodyPart }) => {
 
         }
 
-    })
+    },[selectedBodyPart])
     const data = [
         {
             symptom: 'Pain',

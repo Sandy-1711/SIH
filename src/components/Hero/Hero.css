@@ -130,22 +130,38 @@ svg path {
     margin: 2px;
 }
 
-.loading{
+.loading {
     display: flex;
     gap: 0.2rem;
 }
 
-.loading span{
+.loading span {
     position: relative;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     /* font-size: 3rem; */
 }
-.loading span::before{
+
+.loading span::before {
     content: '';
     height: 4px;
     width: 4px;
     background-color: black;
     border-radius: 50%;
+}
+
+.spantext {
+    animation: appear 1ms forwards linear;
+    animation-delay: calc(var(--i) * 10ms);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
